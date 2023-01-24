@@ -49,7 +49,7 @@ enum TrafficLightPhase {red, green};
 private:
     // typical behaviour methods
 
-    TrafficeLightPhase _currentPhase;
+    TrafficLightPhase _currentPhase;
     void cycleThroughPhase();
 
     // FP.4b : create a private member of type MessageQueue for messages of type TrafficLightPhase 
