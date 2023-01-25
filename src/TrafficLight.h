@@ -46,6 +46,7 @@ public:
     // getters / setters
     TrafficLightPhase getCurrentPhase(){return _currentPhase; };
     void setCurrentPhase(TrafficLightPhase phase){ _currentPhase=phase; };
+    bool isTrafficLightRed();
 
     // typical behaviour methods
 

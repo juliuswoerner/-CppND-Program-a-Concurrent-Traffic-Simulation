@@ -42,6 +42,13 @@ TrafficLight::TrafficLight()
     _currentPhase = TrafficLightPhase::red;
 }
 
+bool TrafficLight::isTrafficLightRed(){
+    if(TrafficLight::getCurrentPhase() == green){
+        return false;
+    }
+    else{ return true; }
+}
+
 void TrafficLight::waitForGreen()
 {
     // FP.5b : add the implementation of the method waitForGreen, in which an infinite while-loop 
