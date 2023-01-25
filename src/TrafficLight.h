@@ -19,11 +19,11 @@ template <class T>
 class MessageQueue
 {
 public:
-void send(TrafficLight trafficLightPhase);
-TrafficLight receive();
+void send(TrafficLight::TrafficLightPhase trafficLightPhase);
+TrafficLight::TrafficLightPhase receive();
 
 private:
-std::deque<TrafficLight> _queue; 
+std::deque<TrafficLight::TrafficLightPhase> _queue; 
 std::condition_variable _condition_variable;
 std::mutex _mutex;
 };
