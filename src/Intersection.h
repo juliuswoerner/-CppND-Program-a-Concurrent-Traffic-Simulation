@@ -45,6 +45,7 @@ public:
     void simulate();
     void vehicleHasLeft(std::shared_ptr<Vehicle> vehicle);
     bool trafficLightIsGreen();
+    enum TrafficLightPhase {red, green};
 
 private:
 
