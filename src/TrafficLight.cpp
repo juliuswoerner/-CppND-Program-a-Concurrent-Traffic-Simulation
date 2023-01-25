@@ -89,6 +89,7 @@ void TrafficLight::cycleThroughPhases()
     int phase_time;
     phase_time = (rand()%3) + 4;
     while(true){
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
         std::this_thread::sleep_for(std::chrono::seconds(phase_time));
         if(getCurrentPhase()==TrafficLightPhase::red){
             TrafficLight::setCurrentPhase(TrafficLightPhase::green);
@@ -97,6 +98,5 @@ void TrafficLight::cycleThroughPhases()
             TrafficLight::setCurrentPhase(TrafficLightPhase::red);
         }
         _mq.send(getCurrentPhase());
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
 }
