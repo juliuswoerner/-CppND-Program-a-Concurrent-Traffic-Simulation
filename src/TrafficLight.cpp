@@ -42,6 +42,11 @@ TrafficLight::TrafficLight()
     _currentPhase = TrafficLightPhase::red;
 }
 
+TrafficLight::~TrafficLight()
+{
+    delete &_currentPhase;
+}
+
 bool TrafficLight::isTrafficLightRed(){
     if(TrafficLight::getCurrentPhase() == green){
         return false;

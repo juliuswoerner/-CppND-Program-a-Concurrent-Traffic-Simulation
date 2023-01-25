@@ -41,7 +41,7 @@ public:
     enum TrafficLightPhase {red, green};
     // constructor / desctructor
     TrafficLight();
-
+    ~TrafficLight();
     // getters / setters
     TrafficLightPhase getCurrentPhase(){return _currentPhase; };
     void setCurrentPhase(TrafficLightPhase phase){ _currentPhase=phase; };
