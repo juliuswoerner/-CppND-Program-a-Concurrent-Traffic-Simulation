@@ -47,7 +47,6 @@ enum TrafficLightPhase {red, green};
 
     void waitForGreen();
     void simulate();
-    TrafficLightPhase getCurrentPhase();
 
 
 private:
