@@ -1,5 +1,11 @@
 #include <iostream>
 #include <random>
+#include <ctime>
+#include <cstdlib>
+#include <stdlib.h>
+#include <unistd.h>
+#include <chrono>
+#include <thread>
 #include "TrafficLight.h"
 #include "TrafficObject.h"
 
@@ -41,10 +47,11 @@ TrafficLightPhase TrafficLight::getCurrentPhase()
 {
     return _currentPhase;
 }
-
+*/
 void TrafficLight::simulate()
 {
     // FP.2b : Finally, the private method „cycleThroughPhases“ should be started in a thread when the public method „simulate“ is called. To do this, use the thread queue in the base class. 
+    TrafficLight::cycleThroughPhases();
 }
 
 // virtual function which is executed in a thread
@@ -54,6 +61,17 @@ void TrafficLight::cycleThroughPhases()
     // and toggles the current phase of the traffic light between red and green and sends an update method 
     // to the message queue using move semantics. The cycle duration should be a random value between 4 and 6 seconds. 
     // Also, the while-loop should use std::this_thread::sleep_for to wait 1ms between two cycles. 
+    while(true){
+        srand((unsigned)time(0));
+        int phase_time;
+        phase_time = (rand()%3) + 4;
+        std::this_thread::sleep_for(std::chrono::seconds(phase_time));
+        if(getCurrentPhase()==red){
+            TrafficLight::setCurrentPhase(green);
+        }
+        else{
+            TrafficLight::setCurrentPhase(red);
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+    }
 }
-
-*/
